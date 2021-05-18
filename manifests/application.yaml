@@ -1,0 +1,22 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: "storageos"
+  labels:
+    app.kubernetes.io/name: "storageos"
+    app.kubernetes.io/version: "v2.4.0"
+spec:
+  selector:
+    matchLabels:
+     app.kubernetes.io/name: "storageos"
+  componentKinds: []
+  descriptor:
+    version: "v2.4.0"
+    description: "Fast persistent storage."
+    icons:
+      - src: "https://docs.storageos.com/images/logo-helm.svg"
+        type: "image/svg"
+    type: "storageos"
+    links:
+      - description: StorageOS Admin Console
+        url: "http://storageos"

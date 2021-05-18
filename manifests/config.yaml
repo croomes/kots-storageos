@@ -1,0 +1,46 @@
+apiVersion: kots.io/v1beta1
+kind: Config
+metadata:
+  name: storageos
+spec:
+  groups:
+    - name: storageos
+      title: StorageOS
+      description: Sentry Defaults
+      items:
+        - name: admin_username
+          title: Admin Username
+          type: text
+          default: 'admin'
+        - name: admin_password
+          title: Admin Password
+          type: password
+          default: 'password'
+        - name: secret_key
+          title: Secret Key
+          type: password
+          hidden: true
+          value: "{{repl RandomString 40}}"
+    - name: etcd
+      title: Key Value Store
+      description: Database Options
+      items:
+        - name: postgres_type
+          type: select_one
+          title: Etcd
+          default: managed_etcd
+          items:
+            - name: managed_etcd
+              title: Managed Etcd
+            - name: external_etcd_inline
+              title: External Etcd
+        - name: external_etcd_host
+          title: Etcd Host
+          when: '{{repl ConfigOptionEquals "postgres_type" "external_etcd_inline"}}'
+          type: text
+          default: postgres
+        - name: external_etcd_port
+          title: Etcd Port
+          when: '{{repl ConfigOptionEquals "postgres_type" "external_etcd_inline"}}'
+          type: text
+          default: "2379"

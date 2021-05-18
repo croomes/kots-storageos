@@ -1,0 +1,14 @@
+apiVersion: kots.io/v1beta1
+kind: Application
+metadata:
+  name: storageos
+spec:
+  title: StorageOS
+  icon: https://docs.storageos.com/images/logo-helm.svg
+  statusInformers:
+    - storageoscluster/default
+  ports:
+    - serviceName: "storageos"
+      servicePort: 5705
+      localPort: 5705
+      applicationUrl: "http://storageos"

@@ -1,0 +1,8 @@
+apiVersion: storageos.com/v1
+kind: StorageOSCluster
+metadata:
+  name: default
+spec:
+  k8sDistro: kots
+  kvBackend:
+    address: etcd
