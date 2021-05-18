@@ -21,15 +21,15 @@ spec:
         checkName: Cluster Memory
         outcomes:
           - fail:
-              when: "sum(memoryAllocatable) < 10Gi"
-              message: Sentry Requires 10Gi allocatable memory, with 32Gi recommended
+              when: "sum(memoryAllocatable) < 6Gi"
+              message: Sentry Requires 10Gi allocatable memory, with 12Gi recommended
               uri: https://kurl.sh/docs/install-with-kurl/system-requirements
           - warn:
-              when: "sum(memoryAllocatable) < 32Gi"
-              message: StorageOS Requires 10Gi allocatable memory, with 32Gi recommended
+              when: "sum(memoryAllocatable) < 12Gi"
+              message: StorageOS Requires 10Gi allocatable memory, with 12Gi recommended
               uri: https://kurl.sh/docs/install-with-kurl/system-requirements
           - pass:
-              message: Cluster has at least 32 Gi of memory
+              message: Cluster has at least 12 Gi of memory
     - nodeResources:
         checkName: Cluster CPU
         outcomes:

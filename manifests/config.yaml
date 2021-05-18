@@ -25,7 +25,7 @@ spec:
       title: Key Value Store
       description: Database Options
       items:
-        - name: postgres_type
+        - name: etcd_type
           type: select_one
           title: Etcd
           default: managed_etcd
@@ -36,11 +36,11 @@ spec:
               title: External Etcd
         - name: external_etcd_host
           title: Etcd Host
-          when: '{{repl ConfigOptionEquals "postgres_type" "external_etcd_inline"}}'
+          when: '{{repl ConfigOptionEquals "etcd_type" "external_etcd_inline"}}'
           type: text
-          default: postgres
+          default: etcd-client
         - name: external_etcd_port
           title: Etcd Port
-          when: '{{repl ConfigOptionEquals "postgres_type" "external_etcd_inline"}}'
+          when: '{{repl ConfigOptionEquals "etcd_type" "external_etcd_inline"}}'
           type: text
           default: "2379"
