@@ -38,7 +38,7 @@ spec:
           title: Etcd Host
           when: '{{repl ConfigOptionEquals "etcd_type" "external_etcd_inline"}}'
           type: text
-          default: etcd-client
+          default: etcd-client.etcd.svc.cluster.local
         - name: external_etcd_port
           title: Etcd Port
           when: '{{repl ConfigOptionEquals "etcd_type" "external_etcd_inline"}}'
