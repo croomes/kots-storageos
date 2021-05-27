@@ -6,7 +6,7 @@ spec:
   groups:
     - name: storageos
       title: StorageOS
-      description: Sentry Defaults
+      description: StorageOS Defaults
       items:
         - name: admin_username
           title: Admin Username
